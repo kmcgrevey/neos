@@ -15,11 +15,7 @@ class NearEarthObjects
 
     @parsed_asteroids_data = JSON.parse(asteroids_list_data.body, symbolize_names: true)[:near_earth_objects][:"#{date}"]
 
-    {
-      astroid_list: formatted_asteroid_data,
-      biggest_astroid: largest_astroid_diameter,
-      total_number_of_astroids: total_number_of_astroids
-    }
+    stat_pack
   end
 
   def self.largest_astroid_diameter
@@ -40,5 +36,13 @@ class NearEarthObjects
         miss_distance: "#{astroid[:close_approach_data][0][:miss_distance][:miles].to_i} miles"
       }
     end
+  end
+
+  def self.stat_pack
+       {
+      astroid_list: formatted_asteroid_data,
+      biggest_astroid: largest_astroid_diameter,
+      total_number_of_astroids: total_number_of_astroids
+    }
   end
 end
