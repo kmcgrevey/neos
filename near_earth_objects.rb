@@ -21,13 +21,13 @@ class NearEarthObjects
     # end.max { |a,b| a<=> b}
 
     # total_number_of_astroids = @parsed_asteroids_data.count
-    formatted_asteroid_data = @parsed_asteroids_data.map do |astroid|
-      {
-        name: astroid[:name],
-        diameter: "#{astroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i} ft",
-        miss_distance: "#{astroid[:close_approach_data][0][:miss_distance][:miles].to_i} miles"
-      }
-    end
+    # formatted_asteroid_data = @parsed_asteroids_data.map do |astroid|
+    #   {
+    #     name: astroid[:name],
+    #     diameter: "#{astroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i} ft",
+    #     miss_distance: "#{astroid[:close_approach_data][0][:miss_distance][:miles].to_i} miles"
+    #   }
+    # end
 
     {
       astroid_list: formatted_asteroid_data,
@@ -44,5 +44,15 @@ class NearEarthObjects
 
   def self.total_number_of_astroids
     @parsed_asteroids_data.count
+  end
+
+  def self.formatted_asteroid_data
+    @parsed_asteroids_data.map do |astroid|
+      {
+        name: astroid[:name],
+        diameter: "#{astroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i} ft",
+        miss_distance: "#{astroid[:close_approach_data][0][:miss_distance][:miles].to_i} miles"
+      }
+    end
   end
 end
