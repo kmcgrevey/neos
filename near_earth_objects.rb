@@ -14,7 +14,7 @@ class NearEarthObjects
     # )
     # asteroids_list_data = conn.get('/neo/rest/v1/feed')
 
-    @parsed_asteroids_data = JSON.parse(asteroids_list_data.body, symbolize_names: true)[:near_earth_objects][:"#{date}"]
+    @parsed_asteroids_data = JSON.parse(asteroids_list_data.body, symbolize_names: true)[:near_earth_objects][:"#{@date}"]
 
     stat_pack
   end
