@@ -20,7 +20,7 @@ class NearEarthObjects
     #   astroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i
     # end.max { |a,b| a<=> b}
 
-    total_number_of_astroids = @parsed_asteroids_data.count
+    # total_number_of_astroids = @parsed_asteroids_data.count
     formatted_asteroid_data = @parsed_asteroids_data.map do |astroid|
       {
         name: astroid[:name],
@@ -40,5 +40,9 @@ class NearEarthObjects
     @parsed_asteroids_data.map do |astroid|
       astroid[:estimated_diameter][:feet][:estimated_diameter_max].to_i
     end.max { |a,b| a<=> b}
+  end
+
+  def self.total_number_of_astroids
+    @parsed_asteroids_data.count
   end
 end
