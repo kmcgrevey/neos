@@ -4,18 +4,14 @@ class NeoTable
     @asteroids = asteroids
     puts divider
     puts header
-    # create_rows(@astroid_details[:astroid_list], column_data)
     create_rows(@asteroids, column_data)
     puts divider
-    
-    # binding.pry
   end
 
   def self.column_data
     column_labels.each_with_object({}) do |(col, label), hash|
       hash[col] = {
         label: label,
-        # width: [@astroid_details[:astroid_list].map { |astroid| astroid[col].size }.max, label.size].max}
         width: [@asteroids.map { |astroid| astroid[col].size }.max, label.size].max}
     end
   end
